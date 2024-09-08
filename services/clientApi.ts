@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const  axiosInstance = axios.create({
-    baseURL:'https://api.themoviedb.org/3',
+    baseURL:process.env.NEXT_PUBLIC_BASE_URL_MOVIES,
 })
 
 export const apiRequest = async (url:any, method:string, data?:any) =>{

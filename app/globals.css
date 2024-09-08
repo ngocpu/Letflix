@@ -67,3 +67,19 @@
     @apply bg-background text-foreground;
   }
 }
+.scrollbar-hide{
+  scrollbar-width: none;
+}
+.bg-linear-18 {
+  background-image: linear-gradient(0deg, #181818, transparent 50%);
+}
+.__overlay::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 60px;
+  top: 48%;
+  left: 0;
+  background: linear-gradient(180deg, transparent, hsl(0, 0%, 3.9%) 100%);
+  z-index: 2;
+}
