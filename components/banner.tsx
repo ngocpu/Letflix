@@ -8,6 +8,7 @@ import { Carousel, CarouselContent, CarouselItem } from './ui/carousel'
 import { Dialog, DialogContent, DialogTrigger } from './ui/dialog'
 import MovieModal from './movie-modal'
 import Link from 'next/link'
+import apiConfig from '@/services/apiConfig'
 
 const Banner = () => {
     const [movie, setMovie] = useState<any[]>([])
@@ -42,9 +43,9 @@ const Banner = () => {
                 {movie?.map(item => (
                     <CarouselItem key={item.id}>
                         <div
-                            className="w-full h-screen relative bg-cover bg-center"
+                            className="w-full h-screen relative bg-cover bg-center __overlay-baner"
                         >
-                            <img src={`${process.env.NEXT_PUBLIC_BASE_IMG_URL}${item?.backdrop_path}`} alt='movie img' className='w-full h-full object-cover brightness-75' />
+                            <img src={apiConfig.originalImg(item?.backdrop_path)} alt='movie img' className='w-full h-full object-cover brightness-75' />
                             <div className="w-full h-full absolute top-0 left-0 bg-linear-18"></div>
                             <div className="absolute top-[40%]  flex flex-col gap-2  px-10 md:px-10">
                                 <h1 className="text-5xl font-semibold">{item?.title}</h1>

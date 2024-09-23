@@ -1,8 +1,10 @@
 import axios from "axios";
+import apiConfig from "./apiConfig";
 
 const  axiosInstance = axios.create({
-    baseURL:process.env.NEXT_PUBLIC_BASE_URL_MOVIES,
+    baseURL:apiConfig.baseUrl,
 })
+
 
 export const apiRequest = async (url:any, method:string, data?:any) =>{
     try{

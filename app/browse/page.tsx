@@ -1,7 +1,6 @@
 import Banner from '@/components/banner'
 import Row from '@/components/row'
-import { getNowPhayingMoviesApi, getPopularMoviesApi, getTopRatedMoviesApi, getUpComingMoviesApi } from '@/services/apis/moviesApi'
-import React from 'react'
+import { getNowPlayingMoviesApi, getPopularMoviesApi, getTopRatedMoviesApi, getUpcomingMoviesApi } from '@/services/apis/moviesApi'
 
 const HomePage = () => {
   return (
@@ -9,21 +8,11 @@ const HomePage = () => {
       <Banner />
       <div className=" w-full scrollbar-hide  ml-6 md:ml-10">
         <Row id='1' title='Most popular' fetchUrl={getPopularMoviesApi()} />
-        <Row id='2' title='Now playing' fetchUrl={getNowPhayingMoviesApi()} />
+        <Row id='2' title='Now playing' fetchUrl={getNowPlayingMoviesApi()} />
         <Row id='3' title='Top rated' fetchUrl={getTopRatedMoviesApi()} />
-        <Row id='4' title='Up comming' fetchUrl={getUpComingMoviesApi()} />
-
-      </div>
-      {/* <div className="bottom-[-85%] absolute w-full h-full pl-6 md:pl-10">
-        <Row id='1' title='Most popular' fetchUrl={getPopularMoviesApi()} />
-        <Row id='1' title='Most popular' fetchUrl={getPopularMoviesApi()} />
-        <Row id='1' title='Most popular' fetchUrl={getPopularMoviesApi()} />
-        <Row id='1' title='Most popular' fetchUrl={getPopularMoviesApi()} />
-
-      </div>
-      */}
+        <Row id='4' title='Up comming' fetchUrl={getUpcomingMoviesApi()} />
+      </div>  
     </div>
   )
 }
-
 export default HomePage

@@ -3,6 +3,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "@/components/ui/toaster";
 const popins = Poppins({
   subsets: ["latin"], 
   weight: ["400", "700"]  
@@ -27,6 +28,7 @@ export default function RootLayout({
             defaultTheme="dark"
           >
             {children}
+            <Toaster />
           </ThemeProvider>
         </StateProvider>
       </body>

@@ -1,74 +1,50 @@
 // components/Footer.tsx
 
-import { Facebook, Instagram, Twitter, Youtube } from "lucide-react";
+import { Facebook, Instagram} from "lucide-react";
 import React from "react";
 
 const Footer: React.FC = () => {
   return (
-    <footer className=" text-gray-400 text-xs py-8">
-      <div className="container mx-auto flex flex-col items-center">
-        {/* Social Icons */}
-        <div className="flex space-x-6 mb-6">
-          <a href="#" aria-label="Facebook" className="hover:text-white">
-            <Facebook size={24} />
+    <footer className=" text-gray-400 py-8 text-[10px] ml-10">
+      <div className="container mx-auto justify-center px-4">
+        <div className="flex justify-start mb-6">
+          <a href="#" className="mr-4">
+            <Facebook size={15} fill="white"/>
           </a>
-          <a href="#" aria-label="Instagram" className="hover:text-white">
-            <Instagram size={24} />
+          <a href="#" className="mr-4">
+            <Instagram size={15} fill="white" />
           </a>
-          <a href="#" aria-label="Twitter" className="hover:text-white">
-            <Twitter size={24} />
-          </a>
-          <a href="#" aria-label="YouTube" className="hover:text-white">
-            <Youtube size={24} />
-          </a>
+          
         </div>
 
-        {/* Links */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center text-xs">
-          <a href="#" className="hover:text-white">
-            Audio Description
-          </a>
-          <a href="#" className="hover:text-white">
-            Help Center
-          </a>
-          <a href="#" className="hover:text-white">
-            Investor Relations
-          </a>
-          <a href="#" className="hover:text-white">
-            Jobs
-          </a>
-          <a href="#" className="hover:text-white">
-            Legal Notices
-          </a>
-          <a href="#" className="hover:text-white">
-            Cookie Preferences
-          </a>
-          <a href="#" className="hover:text-white">
-            Gift Cards
-          </a>
-          <a href="#" className="hover:text-white">
-            Terms of Use
-          </a>
-          <a href="#" className="hover:text-white">
-            Corporate Information
-          </a>
-          <a href="#" className="hover:text-white">
-            Media Center
-          </a>
-          <a href="#" className="hover:text-white">
-            Privacy
-          </a>
-          <a href="#" className="hover:text-white">
-            Contact Us
-          </a>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 text-[10px]">
+          <div>
+            <a href="#" className="block mb-2">Audio Description</a>
+            <a href="#" className="block mb-2">Investor Relations</a>
+            <a href="#" className="block">Legal Notices</a>
+          </div>
+          <div>
+            <a href="#" className="block mb-2">Help Center</a>
+            <a href="#" className="block mb-2">Jobs</a>
+            <a href="#" className="block">Cookie Preferences</a>
+          </div>
+          <div>
+            <a href="#" className="block mb-2">Gift Cards</a>
+            <a href="#" className="block mb-2">Terms of Use</a>
+            <a href="#" className="block">Corporate Information</a>
+          </div>
+          <div>
+            <a href="#" className="block mb-2">Media Center</a>
+            <a href="#" className="block mb-2">Privacy</a>
+            <a href="#" className="block">Contact Us</a>
+          </div>
         </div>
-
-        {/* Copyright */}
-        <div className="mt-6 text-center text-xs">
-          © 2024 Netflix clone
+        <div className="mt-6 text-gray-600 text-[10px]">
+          <p>© Letflix, Inc.</p>
         </div>
       </div>
     </footer>
+
   );
 };
 

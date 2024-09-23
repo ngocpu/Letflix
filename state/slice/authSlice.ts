@@ -1,8 +1,8 @@
 // src/features/auth/authSlice.ts
-import { auth } from '@/firebase';
+import { auth, db } from '@/firebase';
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import {  signInWithEmailAndPassword, signOut, createUserWithEmailAndPassword, onAuthStateChanged, User } from 'firebase/auth';
-
+import { setDoc, doc } from 'firebase/firestore';
 interface AuthState {
   user: { uid: string; email: string | null } | null;
   status: 'idle' | 'loading' | 'succeeded' | 'failed';
@@ -29,8 +29,13 @@ export const signup = createAsyncThunk(
   'auth/signup',
   async (credentials: { email: string; password: string }, { rejectWithValue }) => {
     try {
-      
       const userCredential = await createUserWithEmailAndPassword(auth, credentials.email, credentials.password);
+      // Thêm kiểm tra người dùng đã xác thực
+      if (userCredential.user) {
+        await setDoc(doc(db, "users", userCredential.user.uid), {  // Sử dụng UID của người dùng
+          listMovies: []
+        });
+      }
       return serializeUser(userCredential.user);
     } catch (error: any) {
       return rejectWithValue(error.message);

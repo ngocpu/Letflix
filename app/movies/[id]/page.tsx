@@ -1,7 +1,8 @@
 'use client'
-import React, { useEffect, useRef, useState } from 'react';
 import { getVideoMovieApi } from '@/services/apis/moviesApi';
 import { useParams } from 'next/navigation';
+import { useEffect, useRef, useState } from 'react';
+import Video from 'react-player/lazy';
 
 const MovieDetail = () => {
   const { id } = useParams();
@@ -24,26 +25,9 @@ const MovieDetail = () => {
     }
   }, [id]);
 
-  const videoKey = video[1]?.key;
-   // Assuming the key is at index 1
-   console.log(videoKey)
-
   return (
-    <div className='w-full h-full'>
-      MovieDetail: {typeof id}
-      {videoKey ? (
-        <video
-          width="100%"
-          height="100%"
-          src={`https://www.youtube.com/watch?v=Idh8n5XuYIA`}
-          title="YouTube video player"
-          // frameBorder="0"
-          // allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          // allowFullScreen
-        ></video>
-      ) : (
-        <p>Loading video...</p>
-      )}
+    <div className='w-full h-screen relative group'>
+      <Video url={`https://www.youtube.com/watch?v=${video[1]?.key}&modestbranding=1`} controls={true} playing={true} width='100%' height='100%' />
     </div>
   );
 };
