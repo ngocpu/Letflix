@@ -11,6 +11,7 @@ import { LoaderCircle } from 'lucide-react'
 import { useAppDispatch } from '@/hooks/useAppDispatch'
 import { useRouter } from 'next/navigation'
 import { signup } from '@/state/slice/authSlice'
+import { useLoading } from '@/hooks/useLoading'
 
 
 const schema = z.object({
@@ -18,7 +19,7 @@ const schema = z.object({
     password: z.string().min(6, { message: 'Password must be at least 6 characters' }),
 })
 function Register() {
-    const [loading, setLoading] = useState(false)
+    const {loading, startLoading, stopLoading} = useLoading()
     const form = useForm<z.infer<typeof schema>>({
         resolver: zodResolver(schema),
         defaultValues: {
@@ -29,14 +30,14 @@ function Register() {
     const dispatch = useAppDispatch()
     const router = useRouter()
     const onSubmit = async (values: z.infer<typeof schema>) => {
-        setLoading(true);
+        startLoading()
         try {
           const result = await dispatch(signup(values)).unwrap();
           console.log("Sign-up successful:", result);
-          setLoading(false);
+          stopLoading()
           router.push("/");
         } catch (error: any) {
-          setLoading(false);
+          stopLoading()
           console.error("Sign-up failed:", error);
         }
     }

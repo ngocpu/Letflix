@@ -6,7 +6,7 @@ const  axiosInstance = axios.create({
 })
 
 
-export const apiRequest = async (url:any, method:string, data?:any) =>{
+export const apiRequest = async (url:string | undefined, method:string, data?:any) =>{
     try{
         const response = await axiosInstance.request({
             url:url,

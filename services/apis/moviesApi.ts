@@ -1,3 +1,4 @@
+import { Videos } from "@/app/types";
 import apiConfig from "../apiConfig";
 import { apiRequest } from "../clientApi";
 
@@ -33,7 +34,7 @@ export const getUpcomingMoviesApi = async () => {
 
 export const getDetailMovie = async(id:number) => {
   try{
-    const endpointUrl = `${process.env.NEXT_PUBLIC_BASE_URL_MOVIES}/movie/${id}?api_key=${apiConfig.apiKey}`
+    const endpointUrl = `${apiConfig.baseUrl}/movie/${id}?api_key=${apiConfig.apiKey}`
     const res = await apiRequest(endpointUrl, "GET")
     return res
   } catch(err:any){
@@ -42,7 +43,7 @@ export const getDetailMovie = async(id:number) => {
 }
 export const getCastsMovieApi = async (id:number) =>{
   try{
-    const endpointUrl = `${process.env.NEXT_PUBLIC_BASE_URL_MOVIES}/movie/${id}/credits?api_key=${apiConfig.apiKey}`
+    const endpointUrl = `${apiConfig.baseUrl}/movie/${id}/credits?api_key=${apiConfig.apiKey}`
     const res = await apiRequest(endpointUrl, "GET")
     return res.cast
   } catch(err:any) {
@@ -51,21 +52,30 @@ export const getCastsMovieApi = async (id:number) =>{
 }
 export const getVideoMovieApi = async(id:number) => {
   try{
-    const endpointUrl = `${process.env.NEXT_PUBLIC_BASE_URL_MOVIES}/movie/${id}/videos?api_key=${apiConfig.apiKey}`
+    const endpointUrl = `${apiConfig.baseUrl}/movie/${id}/videos?api_key=${apiConfig.apiKey}`
     const res = await apiRequest(endpointUrl, "GET")
-    const video = res?.results?.filter((item:any) => item.type === "Trailer")
+    const video = res?.results?.filter((item:Videos) => item.type === "Trailer")
     return video
   } catch(err:any){
     console.log(err);
   }
 }
-export const getMovieImgApi = async(id:string) =>{
+export const getRecommentMoviesApi = async (id:number) =>{
   try{
-    const endpointUrl = `${process.env.NEXT_PUBLIC_BASE_URL_MOVIES}/movie/${id}/images?api_key=${apiConfig.apiKey}`
+    const endpointUrl = `${apiConfig.baseUrl}/movie/${id}/recommendations?language=en-US&page=1&api_key=${apiConfig.apiKey}`
     const res = await apiRequest(endpointUrl, "GET")
-    return res.backdrops
-  } catch(err:any){
-    console.log(err)
+    return res.results
+  } catch(err){
+    console.log(err);
   }
 }
+// export const getMovieImgApi = async(id:string) =>{
+//   try{
+//     const endpointUrl = `${apiConfig.baseUrl}/movie/${id}/images?api_key=${apiConfig.apiKey}`
+//     const res = await apiRequest(endpointUrl, "GET")
+//     return res.backdrops
+//   } catch(err:any){
+//     console.log(err)
+//   }
+// }
 

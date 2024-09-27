@@ -6,20 +6,31 @@ import { useSelector } from 'react-redux'
 import { db } from '@/firebase'
 import MovieCard from '@/components/movie-card'
 import { motion } from 'framer-motion'
+import { useLoading } from '@/hooks/useLoading'
+import { Movie } from '@/app/types'
 
 const MyLibrary = () => {
   const user = useSelector((state: RootState) => state.auth.user)
-  const [movies, setMovies] = useState<any[]>([])
+  const [movies, setMovies] = useState<Movie[]>([])
+  const { loading, startLoading, stopLoading } = useLoading()
   useEffect(() => {
-    onSnapshot(doc(db, "users", `${user?.uid}`), (doc) => {
-      setMovies(doc.data()?.listMovies)
-    })
+    startLoading()
+    try {
+      onSnapshot(doc(db, "users", `${user?.uid}`), (doc) => {
+        setMovies(doc.data()?.listMovies)
+      })
+    } catch (err) {
+      console.log(err)
+    } finally {
+      stopLoading()
+    }
+
   }, [user?.uid])
   console.log(movies)
   return (
-    <main className='mt-16 ml-6 md:mx-10'>
-      <p className='text-base'>My libraly </p>
-      <div className="flex gap-5 items-center flex-wrap w-full my-10">
+    <main className='mt-16 ml-6 md:mx-10 min-h-[310px]'>
+      <p className='text-base'>My library </p>
+      {movies.length !== 0 ? <div className="flex gap-5 items-center flex-wrap w-full my-10">
         {movies?.map(item => (
           <motion.div
             className="h-[200px]"
@@ -28,10 +39,10 @@ const MyLibrary = () => {
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <MovieCard data={item} />
+            <MovieCard data={item} loading={loading} />
           </motion.div>
         ))}
-      </div>
+      </div> : <p className='text-center text-gray-400 my-10'>No movies in your library</p>}
     </main>
   )
 }

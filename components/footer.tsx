@@ -1,22 +1,11 @@
 // components/Footer.tsx
 
-import { Facebook, Instagram} from "lucide-react";
 import React from "react";
 
 const Footer: React.FC = () => {
   return (
-    <footer className=" text-gray-400 py-8 text-[10px] ml-10">
-      <div className="container mx-auto justify-center px-4">
-        <div className="flex justify-start mb-6">
-          <a href="#" className="mr-4">
-            <Facebook size={15} fill="white"/>
-          </a>
-          <a href="#" className="mr-4">
-            <Instagram size={15} fill="white" />
-          </a>
-          
-        </div>
-
+    <footer className=" text-gray-400 py-8 text-[10px]  flex justify-center items-center m-auto text-center">
+      <div className="container  mx-auto justify-center px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 text-[10px]">
           <div>
             <a href="#" className="block mb-2">Audio Description</a>

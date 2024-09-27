@@ -1,4 +1,5 @@
 'use client'
+import { Videos } from '@/app/types';
 import { getVideoMovieApi } from '@/services/apis/moviesApi';
 import { useParams } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
@@ -6,7 +7,7 @@ import Video from 'react-player/lazy';
 
 const MovieDetail = () => {
   const { id } = useParams();
-  const [video, setVideo] = useState<any[]>([]);
+  const [video, setVideo] = useState<Videos[]>([]);
   const fetched = useRef(false);
 
   useEffect(() => {

@@ -7,7 +7,7 @@ import Image from 'next/image'
 import { ArrowRight, BellRingIcon, LoaderCircle, Search } from 'lucide-react'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuTrigger } from './ui/dropdown-menu'
 import { useAppDispatch } from '@/hooks/useAppDispatch'
-import { useRouter } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { logout } from '@/state/slice/authSlice'
 import { Popover, PopoverContent, PopoverTrigger } from './ui/popover'
 import { Input } from './ui/input'
@@ -25,6 +25,7 @@ const Navbar = () => {
   const [loading, setLoading] = useState(false)
   const [isScroll, setIsScroll] = useState(false)
   const router = useRouter()
+  const pathName = usePathname()
   const MIN_HEIGHT = 50
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -66,14 +67,15 @@ const Navbar = () => {
   function onSubmit(values: z.infer<typeof formSchema>) {
     router.push(`/results?search_query=${values.values}`)
   }
+  const isActiveLink = (href:string) => pathName === href
   return (
     <nav className={`flex fixed z-50 top-0 left-0 w-full items-center justify-between  px-6 py-3 text-xs transition duration-200 ${isScroll ? 'bg-black' : 'bg-gradient-to-b from-black/40 to-transparent'}`}>
       <div className=" gap-3 items-center hidden md:flex">
         <Link href={'/browse'} className='w-24 h-6'>
           <Image src={logo} alt='Letflix' className='w-full h-full object-cover' />
         </Link>
-        <Link href={"/browse"} className='text-xs cursor-pointer hover:opacity-80 transition'>Browse</Link>
-        <Link href={"/browse/my-library"} className='text-xs cursor-pointer hover:opacity-80 transition'>My library</Link>
+        <Link href={"/browse"} className={`text-xs cursor-pointer hover:opacity-80 transition-all duration-300  ${isActiveLink("/browse") ? "opacity-100" : "opacity-60"}`} >Browse</Link>
+        <Link href={"/browse/my-library"} className={`text-xs cursor-pointer hover:opacity-80 transition-all duration-300  ${isActiveLink("/browse/my-library") ? "opacity-100" : "opacity-60"}`}>My library</Link>
       </div>
       <div className="sm:flex md:hidden items-center gap-3">
         <Link href={'/browse'} className='w-24 h-6 '>
