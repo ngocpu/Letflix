@@ -4,9 +4,9 @@ import React from "react";
 
 const Footer: React.FC = () => {
   return (
-    <footer className=" text-gray-400 py-8 text-[10px]  flex justify-center items-center m-auto text-center">
+    <footer className=" text-gray-400 py-8 text-[12px] 2xl:text-base  flex justify-center items-center m-auto text-center">
       <div className="container  mx-auto justify-center px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 text-[10px]">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 ">
           <div>
             <a href="#" className="block mb-2">Audio Description</a>
             <a href="#" className="block mb-2">Investor Relations</a>
@@ -28,7 +28,7 @@ const Footer: React.FC = () => {
             <a href="#" className="block">Contact Us</a>
           </div>
         </div>
-        <div className="mt-6 text-gray-600 text-[10px]">
+        <div className="mt-6 text-gray-600 ">
           <p>© Letflix, Inc.</p>
         </div>
       </div>

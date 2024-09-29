@@ -147,11 +147,18 @@ const ResultsPage = () => {
     return (
         <div className='relative w-full h-full text-xs'>
             <Navbar />
-            <main className='mt-16 ml-6 md:mx-16'>
+            <main className='mt-16 mx-10 md:mx-16'>
                 <p className='text-xs text-gray-500'>All results for: <span className='text-white'>{searchQuery}</span></p>
-                <div className="flex gap-5 items-center flex-wrap w-full my-10">
+                {/* <div className="flex gap-5 items-center flex-wrap w-full my-10">
                     {results?.map(item => (
                         <div className="h-[200px]" key={item?.id}>
+                            <MovieCard data={item} loading={loading} />
+                        </div>
+                    ))}
+                </div> */}
+                <div className="flex flex-col items-center gap-12 md:gap-5 my-10 md:flex-row md:flex-wrap">
+                    {results?.map(item => (
+                        <div className="w-full h-full md:w-auto" key={item?.id}>
                             <MovieCard data={item} loading={loading} />
                         </div>
                     ))}

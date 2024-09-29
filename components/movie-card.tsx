@@ -19,7 +19,7 @@ const MovieCard: React.FC<props> = ({ data , loading}) => {
   const movieImg = apiConfig.w500Img(data?.poster_path || data?.backdrop_path)
   const router = useRouter()
   return (
-    <div className='h-full md:min-w-[200px] w-full  md:w-[200px] transition duration-200 delay-200 cursor-pointer hover:scale-110 relative text-xs'>
+    <div className='h-full md:min-w-[200px] w-full min-w-[120px]  md:w-[200px] transition duration-200 delay-200 cursor-pointer hover:scale-110 relative text-xs'>
       {loading ? (
         <>
           <Skeleton className="w-full h-[60%] rounded-t-md" />
@@ -34,10 +34,10 @@ const MovieCard: React.FC<props> = ({ data , loading}) => {
         </>
       ) : (
         <>
-          <img src={movieImg} alt='movies immg' className='w-full cursor-pointer h-[60%] rounded-t-md object-cover brightness-85' onClick={() => router.push(`/movies/${data?.id}`)} />
+          <img src={movieImg} alt='movies immg' className='w-full cursor-pointer h-[30%] md:h-[60%] rounded-t-md object-cover brightness-85' onClick={() => router.push(`/movies/${data?.id}`)} />
           <div className='px-2 mt-2'>
             <div className="flex justify-between items-center">
-              <h5 className='text-xs font-semibold truncate max-w-[50%]'>{data?.title}</h5>
+              <h5 className='text-md md:text-xs 2xl:text-base font-semibold truncate max-w-[50%]'>{data?.title}</h5>
               <TooltipProvider>
                 <Tooltip>
                   <Dialog>
@@ -48,14 +48,14 @@ const MovieCard: React.FC<props> = ({ data , loading}) => {
                     </TooltipTrigger>
                     <TooltipContent className="text-xs">Info</TooltipContent>
                     {/* Nội dung của Dialog */}
-                    <DialogContent className='p-0 h-[80%] overflow-y-scroll scrollbar-hide md:min-w-[850px] border-none'>
+                    <DialogContent className='p-0 w-full min-w-full h-[80%] overflow-y-scroll scrollbar-hide md:min-w-[850px] border-none'>
                       <MovieModal id={data?.id} />
                     </DialogContent>
                   </Dialog>
                 </Tooltip>
               </TooltipProvider>
             </div>
-            <p className='text-[10px] text-gray-500 mt-1'>{data?.release_date}</p>
+            <p className='text-[14px] text-gray-500 mt-1'>{data?.release_date}</p>
           </div>
         </>
       )}

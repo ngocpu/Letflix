@@ -11,9 +11,9 @@ const HomeLayout = ({ children }: { children: ReactNode }) => {
   const router = useRouter()
   return (
     <>
-      {user ? <div className='relative w-full h-full text-xs'>
+      {user ? <div className='relative w-full h-full text-xs 2xl:text-base'>
         <Navbar />
-        <main className=''>{children}</main>
+        <main className='w-full'>{children}</main>
         <Footer />
       </div> : router.push("/login")}
     </>

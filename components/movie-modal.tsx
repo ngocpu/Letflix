@@ -146,22 +146,22 @@ const MovieModal: React.FC<props> = ({ id }) => {
     }
   };
   return (
-    <div className=" relative w-full h-full  __overlay ">
+    <div className="relative w-full h-full __overlay ">
       <img src={apiConfig.originalImg(movie?.backdrop_path)} alt="movie img" className='w-full h-[60%] brightness-50 object-cover rounded-t-md' />
-      <div className="absolute z-10 top-[12%] md:min-w-[850px] h-[70%] flex flex-wrap md:justify-center justify-start items-center gap-5">
+      <div className="absolute z-10 top-[12%] w-full  md:min-w-[850px] h-[70%] 2xl:h-[45%] flex flex-wrap justify-center items-center gap-5">
         <div className="w-[25%] hidden md:block h-[95%] rounded-md shadow-lg ml-10">
           {loading ? <Skeleton className='w-full h-full' /> : <img src={apiConfig.w500Img(movie?.poster_path)} alt="" className='w-full h-full object-cover shadow-lg rounded-md brightness-90' />}
         </div>
-        <div className=" flex-1 h-full md:ml-9 md:mr-10 mx-6 justify-start">
+        <div className=" md:flex-1 h-full md:ml-9 md:mr-10 mx-6 justify-center md:justify-start">
           <DialogHeader className='gap-3'>
             <DialogTitle className='mt-5 text-3xl font-semibold text-wrap'>{movie?.title}</DialogTitle>
-            <div className="flex gap-5 items-center ">
+            <div className="flex gap-5 items-center flex-wrap">
               {movie?.genres?.map((item: any) => (
                 <Button className='bg-transparent border-white border  text-white hover:bg-transparent hover:opacity-90 cursor-default rounded-lg'>{item?.name}</Button>
               ))}
             </div>
             <DialogDescription className='text-xs '>{movie?.overview}</DialogDescription>
-            <div className="flex gap-3 w-[40%] items-center">
+            <div className="flex gap-3 w-full md:w-[40%] items-center">
               <Link href={`/movies/${movie?.id}`} className='cursor-pointer'>
                 <Button className='flex items-center justify-center gap-3 cursor-pointer hover:opacity-85 '>
                   <Play fill='#000' size={25} />
@@ -200,7 +200,7 @@ const MovieModal: React.FC<props> = ({ id }) => {
             <span> {movie?.release_date} </span>
           </DialogFooter>
         </div>
-        <div className="flex flex-col gap-3 w-full mx-10">
+        <div className="flex flex-col gap-3 w-full md:mx-10 mx-6">
           <h6 className='text-xs font-semibold'>Casts</h6>
           <div className="flex flex-wrap gap-3 w-full items-center justify-start">
             {casts?.map(item => (
