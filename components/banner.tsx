@@ -68,7 +68,7 @@ const Banner = () => {
                                     <div className="w-full h-full absolute top-0 left-0 bg-linear-18"></div>
                                     <div className="absolute top-[40%]  flex flex-col gap-2  px-10 md:px-10">
                                         <h1 className="text-5xl 2xl:text-8xl font-semibold">{item?.title}</h1>
-                                        <p className='text-xs 2xl:text-base w-full md:w-[50%] my-2'>{item?.overview}</p>
+                                        <p className='text-xs 2xl:text-sm w-full md:w-[50%] my-2'>{item?.overview}</p>
                                         <div className="flex gap-4 items-center mt-2">
                                             <Link href={`/movies/${item?.id}`}>
                                                 <Button className='flex gap-1 items-center hover:opacity-85 transition cursor-pointer'>

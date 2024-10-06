@@ -83,12 +83,12 @@ const Navbar = () => {
         <Link href={'/browse'} className='w-24 h-6'>
           <Image src={logo} alt='Letflix' className='w-full h-full object-cover' />
         </Link>
-        <Link href={"/browse"} className={`text-xs cursor-pointer hover:opacity-80 transition-all duration-300  ${isActiveLink("/browse") ? "opacity-100" : "opacity-60"}`} >Browse</Link>
-        <Link href={"/browse/my-library"} className={`text-xs cursor-pointer hover:opacity-80 transition-all duration-300  ${isActiveLink("/browse/my-library") ? "opacity-100" : "opacity-60"}`}>My library</Link>
+        <Link href={"/browse"} className={`text-xs 2xl:text-sm cursor-pointer hover:opacity-80 transition-all duration-300  ${isActiveLink("/browse") ? "opacity-100" : "opacity-60"}`} >Browse</Link>
+        <Link href={"/browse/my-library"} className={`text-xs 2xl:text-sm cursor-pointer hover:opacity-80 transition-all duration-300  ${isActiveLink("/browse/my-library") ? "opacity-100" : "opacity-60"}`}>My library</Link>
       </div>
       {/* mobile */}
       <div className="flex md:hidden items-center gap-3">
-        <Link href={'/browse'} className='w-24 h-6 '>
+        <Link href={'/browse'} className='w-24 h-6  '>
           <Image src={logo} alt='Letflix' className='w-24 h-6  object-cover' />
         </Link>
         <DropdownMenu open={isDropdownOpen} onOpenChange={(open) => setIsDropdownOpen(open)} >
@@ -113,7 +113,7 @@ const Navbar = () => {
       <div className="flex gap-4 items-center">
         <Popover>
           <PopoverTrigger asChild >
-            <Search size={18} className='cursor-pointer hover:opacity-80 trasition' />
+            <Search size={25} className='cursor-pointer hover:opacity-80 trasition' />
           </PopoverTrigger>
           <PopoverContent side='right' align='center' className='gap-2 p-0 outline-none'>
             <Form {...form}>
@@ -131,7 +131,7 @@ const Navbar = () => {
         </Popover>
         <DropdownMenu>
           <DropdownMenuTrigger asChild >
-            <Image src={profile} alt='profile' className='w-6 h-6 rounded' />
+            <Image src={profile} alt='profile' className='w-6 h-6 2xl:w-8 2xl:h-8 rounded' />
           </DropdownMenuTrigger>
           <DropdownMenuContent className="w-44 border-none" side='bottom' align='end'>
             <DropdownMenuArrow />
