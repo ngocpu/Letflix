@@ -1,0 +1,15 @@
+VITE_API_KEY = AIzaSyCQwuLe9EMlre6SQcd9qnpcRckQoPDoQGs
+VITE_AUTH_DOMAIN = letflix-vn.firebaseapp.com
+VITE_PROJECT_ID = letflix-vn
+VITE_STORAGE_BUCKET= letflix-vn.appspot.com
+VITE_MESSAGING_SENDER_ID = 588276549043
+VITE_APP_ID = 1:588276549043:web:b41d3e1503683e8254f7c6
+VITE_MEASUREMENT_ID = G-2M0JR3Q5C2
+VITE_MOVIE_API_KEY = 7e08f6a51f762dad093ff6aee14f2874
+VITE_BASE_URL_MOVIE_IMG = https://image.tmdb.org/t/p
+VITE_BASE_URL_MOVIE_API = https://api.themoviedb.org/3
+
+
+
+
+
