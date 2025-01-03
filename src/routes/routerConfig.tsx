@@ -1,15 +1,15 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
-import ProtectedLayout from "@/Layout/ProtectedLayout";
-import PublicLayout from "@/Layout/PublicLayout";
-import Login from "@/views/auth/Login";
-import Register from "@/views/auth/Register";
-import NotFound from "@/views/NotFound";
-import Browse from "@/views/Browse";
-import Mylibrary from "@/views/Mylibrary";
-import MyProflie from "@/views/Profile";
-import ResultsPage from '@/views/ResultsPage'
-import Movie from "@/views/Movie";
-import ProtectedRoute from "@/components/ProtectedRoute";
+import ProtectedLayout from "@/shared/Layout/ProtectedLayout";
+import PublicLayout from "@/shared/Layout/PublicLayout";
+import Register from "@/modules/auth/RegisterForm";
+import Browse from "@/modules/Home/Browse";
+import Mylibrary from "@/modules/mylibrary/Mylibrary";
+import MyProflie from "@/modules/profile/Profile";
+import ResultsPage from '@/modules/search/ResultsPage'
+import Movie from "@/modules/movies/Movie";
+import ProtectedRoute from "@/shared/components/ProtectedRoute";
+import Login from "@/modules/auth/LoginForm";
+import NotFound from "@/shared/views/NotFound";
 
 
 export const router = createBrowserRouter([

@@ -1,3 +1,4 @@
+import tailwindcssAnimate from "tailwindcss-animate"
 /** @type {import('tailwindcss').Config} */
 export default {
     darkMode: ["class"],
@@ -13,8 +14,8 @@ export default {
   			sm: 'calc(var(--radius) - 4px)'
   		},
 		fontSize:{
-			base:'14px',
-			lg:'16px',
+			base:'12px',
+			lg:'14px',
 		},
   		colors: {
   			background: 'hsl(var(--background))',
@@ -68,5 +69,5 @@ export default {
       fontSize: ['responsive'],
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [tailwindcssAnimate],
 }

@@ -1,11 +1,11 @@
 import { createRoot } from 'react-dom/client'
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
-import App from './App.tsx'
-import { ThemeProvider } from './components/ThemeProvider.tsx'
-import { Toaster } from './components/ui/toaster.tsx'
 import './index.css'
-import { persistor, store } from './state/store.ts'
+import { persistor, store } from '@/state/store'
+import { ThemeProvider } from '@/shared/components/ThemeProvider'
+import App from './App'
+import { Toaster } from '@/shared/components/ui/toaster'
 
 createRoot(document.getElementById('root')!).render(
     <Provider store={store}>
